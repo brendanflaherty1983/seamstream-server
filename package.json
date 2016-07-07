@@ -1,0 +1,17 @@
+{
+  "name": "seamstream",
+  "version": "1.0.0",
+  "description": "A REST server for SeamStream",
+  "main": "server.js",
+  "author": "Brendan Flaherty",
+  "license": "MIT",
+  "engines": {
+	"node": "0.10.x"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "mongojs": "^2.4.0",
+    "morgan": "^1.7.0",
+    "restify": "^4.1.1"
+  }
+}
