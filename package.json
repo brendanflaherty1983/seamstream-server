@@ -1,17 +1,17 @@
 {
-  "name": "seamstream",
-  "version": "1.0.0",
-  "description": "A REST server for SeamStream",
+  "name": "bucketListApp",
+  "version": "0.1.0",
+  "description": "A REST server for bucketListApp",
   "main": "server.js",
-  "author": "Brendan Flaherty",
+  "author": "Arvind Ravulavaru",
   "license": "MIT",
   "engines": {
-	"node": "0.10.x"
+    "node": "0.10.x"
   },
   "dependencies": {
-    "bcrypt": "^0.8.7",
-    "mongojs": "^2.4.0",
-    "morgan": "^1.7.0",
-    "restify": "^4.1.1"
+    "morgan": "^1.0.0",
+    "bcrypt": "^0.7.8",
+    "restify": "^2.7.0",
+    "mongojs": "^0.13.0"
   }
 }

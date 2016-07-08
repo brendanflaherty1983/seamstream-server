@@ -1,18 +1,17 @@
 var pwdMgr = require('./managePasswords');
- 
+
 module.exports = function (server, db) {
     // unique index
-    db.appUsers.ensureIndex({
+    db.users.ensureIndex({
         email: 1
     }, {
         unique: true
     })
- 
+
     server.post('/api/v1/bucketList/auth/register', function (req, res, next) {
         var user = req.params;
         pwdMgr.cryptPassword(user.password, function (err, hash) {
             user.password = hash;
-            console.log("n", hash);
             db.appUsers.insert(user,
                 function (err, dbUser) {
                     if (err) { // duplicate key error
@@ -36,7 +35,7 @@ module.exports = function (server, db) {
         });
         return next();
     });
- 
+
     server.post('/api/v1/bucketList/auth/login', function (req, res, next) {
         var user = req.params;
         if (user.email.trim().length == 0 || user.password.trim().length == 0) {
@@ -47,14 +46,13 @@ module.exports = function (server, db) {
                 error: "Invalid Credentials"
             }));
         }
-        console.log("in");
         db.appUsers.findOne({
             email: req.params.email
         }, function (err, dbUser) {
- 
- 
+
+
             pwdMgr.comparePassword(user.password, dbUser.password, function (err, isPasswordMatch) {
- 
+
                 if (isPasswordMatch) {
                     res.writeHead(200, {
                         'Content-Type': 'application/json; charset=utf-8'
@@ -70,7 +68,7 @@ module.exports = function (server, db) {
                         error: "Invalid User"
                     }));
                 }
- 
+
             });
         });
         return next();

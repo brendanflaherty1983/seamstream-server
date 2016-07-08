@@ -1,6 +1,6 @@
 module.exports = function (server, db) {
     var validateRequest = require("../auth/validateRequest");
- 
+
     server.get("/api/v1/bucketList/data/list", function (req, res, next) {
         validateRequest.validate(req, res, db, function () {
             db.bucketLists.find({
@@ -14,7 +14,7 @@ module.exports = function (server, db) {
         });
         return next();
     });
- 
+
     server.get('/api/v1/bucketList/data/item/:id', function (req, res, next) {
         validateRequest.validate(req, res, db, function () {
             db.bucketLists.find({
@@ -28,7 +28,7 @@ module.exports = function (server, db) {
         });
         return next();
     });
- 
+
     server.post('/api/v1/bucketList/data/item', function (req, res, next) {
         validateRequest.validate(req, res, db, function () {
             var item = req.params;
@@ -42,14 +42,14 @@ module.exports = function (server, db) {
         });
         return next();
     });
- 
+
     server.put('/api/v1/bucketList/data/item/:id', function (req, res, next) {
         validateRequest.validate(req, res, db, function () {
             db.bucketLists.findOne({
                 _id: db.ObjectId(req.params.id)
             }, function (err, data) {
                 // merge req.params/product with the server/product
- 
+
                 var updProd = {}; // updated products 
                 // logic similar to jQuery.extend(); to merge 2 objects.
                 for (var n in data) {
@@ -73,7 +73,7 @@ module.exports = function (server, db) {
         });
         return next();
     });
- 
+
     server.del('/api/v1/bucketList/data/item/:id', function (req, res, next) {
         validateRequest.validate(req, res, db, function () {
             db.bucketLists.remove({
@@ -87,5 +87,5 @@ module.exports = function (server, db) {
             return next();
         });
     });
- 
+
 }
