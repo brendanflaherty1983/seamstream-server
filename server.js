@@ -1,7 +1,7 @@
 var restify     =   require('restify');
 var mongojs     =   require('mongojs');
 var	morgan  	= 	require('morgan');
-var db          =   mongojs(' mongodb://brendanflaherty1983:Pentium8*@ds015915.mlab.com:15915/seamstream', ['appUsers','bucketLists']);
+var db          =   mongojs('mongodb://brendanflaherty1983:Pentium8*@ds015915.mlab.com:15915/seamstream', ['appUsers','bucketLists']);
 var server      =   restify.createServer();
 
 server.use(restify.acceptParser(server.acceptable));
