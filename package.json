@@ -1,7 +1,7 @@
 {
-  "name": "bucketListApp",
+  "name": "SeamStream",
   "version": "0.1.0",
-  "description": "A REST server for bucketListApp",
+  "description": "A REST server for SeamStream",
   "main": "server.js",
   "author": "Arvind Ravulavaru",
   "license": "MIT",
